@@ -19,8 +19,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+with open('key.txt', 'r') as f:
+    sectet_key_django = f.read()
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@)vm^)$_j&=#x1_1a)$=z0i=@=rseqc^8&*u83u)t0(6g1xvpd'
+SECRET_KEY = f'django-insecure-{sectet_key_django}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -114,11 +116,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (BASE_DIR / 'static',)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
