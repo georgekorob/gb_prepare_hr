@@ -2,47 +2,47 @@
 {% load static %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-2">
-                <ul class="navbar-text">
-                    <li><a href="{% url 'category' %}"
-                           class="{% if request.resolver_match.kwargs.pk == 'None' %}active{% endif %}">
-                        Все
-                    </a></li>
-                    {% for cat in categories %}
-                        <li><a href="{% url 'category' cat.pk %}"
-                               class="{% if request.resolver_match.kwargs.pk|add:'0' == link.pk %}active{% endif %}">
-                            {{ cat.name }}
-                        </a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="col-sm-10">
-                <table class="table">
-                    <tr>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>price</th>
-                        <th>unit</th>
-                        <th>provider_name</th>
-                        <th>date_add</th>
-                        <th>categories</th>
-                    </tr>
-                    {% for object in products %}
-                        <tr>
-                            <td>{{ object.id }}</td>
-                            <td>{{ object.name }}</td>
-                            <td class="font-weight-bold">{{ object.price }}</td>
-                            <td>{{ object.unit }}</td>
-                            <td>{{ object.provider_name }}</td>
-                            <td>{{ object.date_add | date }}</td>
-                            <td>{% for o in object.categories.all %} {{ o.name }} {% endfor %}</td>
-                        </tr>
-                    {% endfor %}
-                </table>
-                <button class="button btn-upload">Добавить</button>
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-auto">
+            <ul class="nav flex-column nav-pills">
+                <li class="nav-item"><a href="{% url 'category' %}"
+                       class="nav-link{% if request.resolver_match.kwargs.pk == null or request.resolver_match.kwargs.pk == 0 %} active{% endif %}">
+                    Все
+                </a></li>
+                {% for cat in categories %}
+                <li class="nav-item"><a href="{% url 'category' cat.pk %}"
+                       class="nav-link{% if request.resolver_match.kwargs.pk|add:'0' == cat.pk %} active{% endif %}">
+                    {{ cat.name }}
+                </a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col">
+            <table class="table">
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>price</th>
+                    <th>unit</th>
+                    <th>provider_name</th>
+                    <th>date_add</th>
+                    <th>categories</th>
+                </tr>
+                {% for object in products %}
+                <tr>
+                    <td>{{ object.id }}</td>
+                    <td>{{ object.name }}</td>
+                    <td class="font-weight-bold">{{ object.price }}</td>
+                    <td>{{ object.unit }}</td>
+                    <td>{{ object.provider_name }}</td>
+                    <td>{{ object.date_add | date }}</td>
+                    <td>{% for o in object.categories.all %} {{ o.name }} {% endfor %}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <button type="submit" class="button btn-outline-primary rounded">Добавить</button>
         </div>
     </div>
+</div>
 {% endblock %}
