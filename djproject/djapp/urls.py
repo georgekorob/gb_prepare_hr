@@ -17,5 +17,6 @@ from django.urls import path
 from .views import ProductView
 
 urlpatterns = [
-    path('', ProductView.as_view()),
+    path('', ProductView.as_view(), name='category'),
+    path('<int:pk>/', ProductView.as_view(), name='category'),
 ]
