@@ -1,4 +1,4 @@
-/.idea/gb_prepare_hr.iml
+/.idea/
 /venv/
 /djproject/db.sqlite3
 /djproject/key.txt
