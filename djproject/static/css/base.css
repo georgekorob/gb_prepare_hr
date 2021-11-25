@@ -5,4 +5,5 @@ body {
 .header {
     height: 50px;
     background-color: rgba(120, 100, 140, 1);
+    text-align: center;
 }
