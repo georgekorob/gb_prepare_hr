@@ -23,4 +23,5 @@ class ProductView(ListView):
             context['products'] = Product.objects.filter(categories__in=[pk]).prefetch_related('categories').order_by(
                 'price')
         context['category'] = cur_category
+        context['site'] = self.request.site
         return context
