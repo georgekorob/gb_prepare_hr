@@ -1,3 +1,4 @@
+from django.contrib.sites.managers import CurrentSiteManager
 from django.contrib.sites.models import Site
 from django.db import models
 
@@ -6,6 +7,7 @@ from django.db import models
 class ProductCategory(models.Model):
     name = models.CharField(max_length=64)
     site = models.ForeignKey(Site, on_delete=models.CASCADE, null=True)
+    objects = CurrentSiteManager()
 
     def __str__(self):
         return self.name
@@ -19,6 +21,7 @@ class Product(models.Model):
     provider_name = models.CharField(max_length=64, blank=True)
     categories = models.ManyToManyField(ProductCategory, related_name='categories')
     site = models.ForeignKey(Site, on_delete=models.CASCADE, null=True)
+    objects = CurrentSiteManager('site')
 
     def __str__(self):
         return self.name
