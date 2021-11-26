@@ -28,17 +28,19 @@
                     <th>provider_name</th>
                     <th>date_add</th>
                     <th>categories</th>
+                    <th>site</th>
                 </tr>
                 {% for object in products %}
-                <tr>
-                    <td>{{ object.id }}</td>
-                    <td>{{ object.name }}</td>
-                    <td class="font-weight-bold">{{ object.price }}</td>
-                    <td>{{ object.unit }}</td>
-                    <td>{{ object.provider_name }}</td>
-                    <td>{{ object.date_add | date }}</td>
-                    <td>{% for o in object.categories.all %} {{ o.name }} {% endfor %}</td>
-                </tr>
+                    <tr>
+                        <td>{{ object.id }}</td>
+                        <td>{{ object.name }}</td>
+                        <td class="font-weight-bold">{{ object.price }}</td>
+                        <td>{{ object.unit }}</td>
+                        <td>{{ object.provider_name }}</td>
+                        <td>{{ object.date_add | date }}</td>
+                        <td>{% for o in object.categories.all %} {{ o.name }} {% endfor %}</td>
+                        <td>{{ object.site.name }}</td>
+                    </tr>
                 {% endfor %}
             </table>
             <button type="submit" class="button btn-outline-primary rounded">Добавить</button>
