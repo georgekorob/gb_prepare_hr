@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:14.1
+    privileged: true
+    restart: always
+    ports:
+      - 54323:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: qwerty
+      POSTGRES_DB: test
+
+  backend:
+    build:
+      context: ./djproject
+    environment:
+      DJANGO_SETTINGS_MODULE: djproject.settings.prod_int
+    ports:
+      - 8080:8080
+    command: bash -c "
+      python manage.py migrate
+      && gunicorn djproject.wsgi -b 0.0.0.0:8080
+      "
+    depends_on:
+      - db
+
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - 8000:8000
+    depends_on:
+      - backend
