@@ -11,3 +11,17 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: qwerty
       POSTGRES_DB: test
+
+  backend:
+    build:
+      context: ./djproject
+    environment:
+      DJANGO_SETTINGS_MODULE: djproject.settings.prod_int
+    ports:
+      - 8080:8080
+    command: bash -c "
+      python manage.py migrate
+      && gunicorn djproject.wsgi -b 0.0.0.0:8080
+      "
+    depends_on:
+      - db
