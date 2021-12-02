@@ -25,3 +25,11 @@ services:
       "
     depends_on:
       - db
+
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - 8000:8000
+    depends_on:
+      - backend
