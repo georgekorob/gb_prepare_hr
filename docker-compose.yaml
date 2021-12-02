@@ -2,12 +2,12 @@ version: '3.1'
 
 services:
   db:
-    image: postgres:13.4
+    image: postgres:14.1
     privileged: true
     restart: always
     ports:
-      - 5432:5432
+      - 54323:5432
     environment:
-      POSTGRES_USER: george
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: qwerty
       POSTGRES_DB: test

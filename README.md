@@ -57,9 +57,22 @@
 * 0:42 запуск db (docker-compose up --build)
 * 0:45 создание settings
 * 0:47 install psycopg2-binary
+* PostgreSQL, Docker, enable WSL 2
 * 0:49 migrate
+* 0:52 create superuser
 * 0:53 вернуть SECRET_KEY
 * 1:00 Dockerfile
+* 1:03 pip freeze > requirements.txt
+* 1:10 docker-compose backend
+* 1:15 параметры запуска
+* 1:26 prod_int
+* 1:33 export settings &&
+* 1:35 ports
+* 1:38 nginx
+* 1:42 docker-compose nginx
+* 1:47 STATIC_ROOT для nginx
+* 1:53 python manage.py collectstatic
+* 2:02 hw
 
 <br><br>
 
