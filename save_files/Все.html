@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог магазина</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+</head>
+<body>
+<header class="header justify-content-center"><h1>Товары example.com</h1></header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-auto">
+            <ul class="nav flex-column nav-pills">
+                <li class="nav-item"><a href="/"
+                       class="nav-link active">
+                    Все
+                </a></li>
+                
+                <li class="nav-item"><a href="/1/"
+                       class="nav-link">
+                    Столы
+                </a></li>
+                
+                <li class="nav-item"><a href="/5/"
+                       class="nav-link">
+                    Стекло
+                </a></li>
+                
+                <li class="nav-item"><a href="/6/"
+                       class="nav-link">
+                    Кровать
+                </a></li>
+                
+                <li class="nav-item"><a href="/7/"
+                       class="nav-link">
+                    Металл
+                </a></li>
+                
+            </ul>
+        </div>
+        <div class="col">
+            <table class="table">
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>price</th>
+                    <th>unit</th>
+                    <th>provider_name</th>
+                    <th>date_add</th>
+                    <th>categories</th>
+                    <th>site</th>
+                </tr>
+                
+                    <tr>
+                        <td>3</td>
+                        <td>Складной стул</td>
+                        <td class="font-weight-bold">2000.00</td>
+                        <td>RUB</td>
+                        <td>ИКЕА</td>
+                        <td>Nov. 26, 2021</td>
+                        <td> Металл </td>
+                        <td>example.com</td>
+                    </tr>
+                
+                    <tr>
+                        <td>4</td>
+                        <td>Раскладушка</td>
+                        <td class="font-weight-bold">5000.00</td>
+                        <td>RUB</td>
+                        <td>Военторг</td>
+                        <td>Nov. 26, 2021</td>
+                        <td> Кровать  Металл </td>
+                        <td>example.com</td>
+                    </tr>
+                
+            </table>
+            <button type="submit" class="button btn-outline-primary rounded">Добавить</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
